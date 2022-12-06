@@ -33,28 +33,28 @@ shapes = {
 }
 
 def part_one():
-    your_score = 0
+    score = 0
     for draw in draws:
         if draw in win_conds:
-            your_score += 6
+            score += 6
         elif draw_map[draw[0]] == draw_map[draw[1]]:
-            your_score += 3   
-        your_score += shapes[draw_map[draw[1]]]['SCORE']
-    return your_score
+            score += 3   
+        score += shapes[draw_map[draw[1]]]['SCORE']
+    return score
 
 def part_two():
-    your_score = 0
+    score = 0
     for draw in draws:
-        opp_shape = shapes[draw_map[draw[0]]]
+        opp = shapes[draw_map[draw[0]]]
         strat = draw[1]
         match strat:
             case 'X':
-                your_score += shapes[opp_shape['STRENGTH']]['SCORE']
+                score += shapes[opp['STRENGTH']]['SCORE']
             case 'Y':
-                your_score += opp_shape['SCORE']
+                score += opp['SCORE']
             case 'Z':
-                your_score += shapes[opp_shape['WEAKNESS']]['SCORE']
-    return your_score                  
+                score += shapes[opp['WEAKNESS']]['SCORE']
+    return score                  
 
 print(f"Solution A: {part_one()}")
 print(f"Solution B: {part_two()}")
