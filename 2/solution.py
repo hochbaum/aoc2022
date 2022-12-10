@@ -51,9 +51,9 @@ def part_two():
             case 'X':
                 score += shapes[opp['STRENGTH']]['SCORE']
             case 'Y':
-                score += opp['SCORE']
+                score += opp['SCORE'] + 3
             case 'Z':
-                score += shapes[opp['WEAKNESS']]['SCORE']
+                score += shapes[opp['WEAKNESS']]['SCORE'] + 6
     return score                  
 
 print(f"Solution A: {part_one()}")
